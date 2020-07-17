@@ -1,0 +1,88 @@
+.mt-20 {
+    margin-top: 30px;
+}
+
+.wrapper {
+    margin: auto;
+    width: 900px;
+
+    .form-wrapper {
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    .buttons {
+        div a {
+            &:nth-child(2) {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .input-group {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        margin-top: 10px;
+        position: relative;
+
+        .currency {
+            position: absolute;
+            left: 15px;
+            top: 43%;
+            transform: translateY(-50%);
+            color: $tertiary;
+            opacity: .7;
+            transition: .3s;
+        }
+
+        input {
+            margin-top: 5px;
+            width: calc(100% - 24px);
+            padding: 12px;
+
+            &:focus ~ .currency {
+                opacity: 1;
+                color: $black;
+            }
+
+            &#product-price {
+                padding-left: 30px;
+                width: calc(100% - 46px);
+            }
+        }
+
+        select {
+            padding: 12px;
+            margin-top: 5px;
+        }
+
+        textarea {
+            height: 200px;
+            min-height: 200px;
+            margin-top: 5px;
+            width: calc(100% - 24px);
+            padding: 12px;
+            resize: vertical;
+        }
+
+        input, textarea, select {
+            outline: none;
+            border: 2px solid $tertiary;
+        }
+    }
+
+    .view-product-image {
+        width: calc(100% - 4px);
+        height: 348px;
+        margin: 32px 0 20px;
+        border: 2px solid $tertiary;
+    }
+}
+
+.view-product-image {
+    width: calc(100% - 4px);
+    height: 348px;
+    margin: 32px 0 20px;
+    border: 2px solid $tertiary;
+}

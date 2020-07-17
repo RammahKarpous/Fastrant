@@ -1,0 +1,39 @@
+.buttons {
+  margin-top: 20px;
+}
+
+.button {
+  padding: 15px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+  border: none;
+  outline: none;
+
+  &--primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: darken($primary, 5%);
+    }
+  }
+
+  &--danger {
+    background: $danger;
+    color: $white;
+
+    &:hover {
+      background: darken($danger, 5%);
+    }
+  }
+
+  &--error {
+    background: $error;
+    color: $white;
+
+    &:hover {
+      background: darken($error, 5%);
+    }
+  }
+}

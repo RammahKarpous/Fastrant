@@ -1,0 +1,21 @@
+// width = 100% - Padding
+/**
+
+padding: 20px
+width: calc(100% - 40px)
+ */
+
+@mixin width($padding) {
+  padding: $padding;
+  width: calc(100% - (#{$padding} * 2));
+}
+
+@mixin width-four-padding($pt, $pr, $pb, $pl) {
+  padding: $pt $pr $pb $pl;
+  width: calc(100% - (#{$pr} + #{$pl}) * 2);
+}
+
+@mixin width-three-padding($pt, $pr_pl, $pb) {
+  padding: $pt $pr_pl $pb;
+  width: calc(100% - #{$pr_pl} * 2);
+}

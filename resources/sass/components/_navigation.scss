@@ -1,0 +1,19 @@
+#nav {
+    display: flex;
+    flex-flow: column;
+    border-right: 2px solid rgba(112, 112, 112, 0.2);
+    float: left;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        padding: 20px;
+        display: block;
+        text-decoration: none;
+        color: #000;
+    }
+}

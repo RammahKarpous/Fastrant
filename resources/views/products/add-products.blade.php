@@ -8,7 +8,7 @@
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
-                        <label for="product-name"></label>
+                        <label for="product-name">Product name</label>
                         <input type="text" name="product-name" id="product-name" />
                     </div>
 

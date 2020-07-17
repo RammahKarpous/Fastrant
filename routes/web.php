@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
     // ProductsController
     Route::get('/add-products', 'ProductsController@addProducts')->name('add-products');
 
+    // Category
+    Route::get('/categories', 'CategoriesController@addProducts')->name('categories');
+
     // Auth Routs
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');

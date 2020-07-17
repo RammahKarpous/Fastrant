@@ -6,6 +6,7 @@
 
 // Components
 @import "components/button";
+@import "components/navigation";
 
 // Layout
 @import "layout/flex";
@@ -13,6 +14,10 @@
 
 // Pages
 @import "pages/add-products";
+@import "pages/categories";
+
+// Global
+@import "global";
 
 // Utilities
 @import "utilities/mixins";

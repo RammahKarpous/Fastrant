@@ -1,0 +1,27 @@
+button {
+
+    &.add-category {
+        margin-top: 20px;
+    }
+
+    &.delete-category {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        opacity: .8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.category {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $gray;
+    padding: 10px;
+    border-radius: 10px;
+}

@@ -18,6 +18,8 @@
 </template>
 
 <script>
+    import PictureInput from "vue-picture-input";
+
     export default {
         name: "ImageSelector",
 

@@ -17,7 +17,7 @@
                             <span class="border"></span>
                         </label>
                         <input type="file" accept="image/*" hidden id="category_image" name="category_image">
-{{--                        <image-selector/>--}}
+                        <image-selector/>
                     </div>
 
                     <input type="submit" value="Add category" class="button button--primary">

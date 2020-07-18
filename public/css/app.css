@@ -3,8 +3,40 @@
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+h2 {
+  padding: 0.38em 0;
+}
+
+.large-text {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.large-text,
+.normal-text {
+  font-family: Arial, "sans-serif";
+}
+
+/**
+
+padding: 20px
+width: calc(100% - 40px)
+ */
+
 .buttons {
   margin-top: 20px;
+}
+
+.buttons div a:nth-child(2) {
+  margin-left: 20px;
 }
 
 .button {
@@ -48,6 +80,8 @@
   flex-flow: column;
   border-right: 2px solid rgba(112, 112, 112, 0.2);
   float: left;
+  background: #FFFFFF;
+  height: 100vh;
 }
 
 #nav ul {
@@ -98,10 +132,6 @@
 
 .wrapper .form-wrapper {
   grid-template-columns: 1.5fr 1fr;
-}
-
-.wrapper .buttons div a:nth-child(2) {
-  margin-left: 20px;
 }
 
 .wrapper .input-group {
@@ -174,6 +204,34 @@
   border: 2px solid #3C888D;
 }
 
+.image-selector {
+  padding: 24px;
+  width: calc(100% - (24px * 2));
+  background: #D4D4D4;
+  margin: 20px 0;
+  height: 230px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-selector .large-text,
+.image-selector .normal-text {
+  opacity: 0.7;
+}
+
+.image-selector .border {
+  border: 2px dashed rgba(112, 112, 112, 0.6);
+  padding: 20px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+}
+
 button.add-category {
   margin-top: 20px;
 }
@@ -189,23 +247,45 @@ button.delete-category:hover {
   opacity: 1;
 }
 
-.category {
+.categories {
+  margin-top: 30px;
+}
+
+.categories .category {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   justify-content: space-between;
-  align-items: center;
   border: 2px solid #D4D4D4;
   padding: 10px;
   border-radius: 10px;
 }
 
-body {
-  font-family: arial, "sans-serif";
+.categories .category a {
+  margin-left: 10px;
+  opacity: 0.8;
 }
 
-/**
+.categories .category a img {
+  width: 16px;
+}
 
-padding: 20px
-width: calc(100% - 40px)
- */
+.categories .category a img:nth-child(2) {
+  width: 18px;
+}
+
+.categories .category a:hover {
+  opacity: 1;
+}
+
+.categories .category .options {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  font-family: arial, "sans-serif";
+  margin: 0;
+}
 

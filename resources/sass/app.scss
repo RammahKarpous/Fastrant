@@ -3,6 +3,10 @@
 
 // Variables
 @import 'abstract/variables';
+@import 'abstract/font';
+
+// Utilities
+@import "utilities/mixins";
 
 // Components
 @import "components/button";
@@ -13,11 +17,8 @@
 @import "layout/grid";
 
 // Pages
-@import "pages/add-products";
+@import "components/form-elements";
 @import "pages/categories";
 
 // Global
 @import "global";
-
-// Utilities
-@import "utilities/mixins";

@@ -1,0 +1,17 @@
+h1, h2, h3, h4, {
+    margin: 0;
+}
+
+h2 {
+    padding: .38em 0;
+}
+
+.large-text {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.large-text, .normal-text {
+    font-family: Arial, 'sans-serif';
+}

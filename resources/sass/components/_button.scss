@@ -1,5 +1,11 @@
 .buttons {
   margin-top: 20px;
+
+    div a {
+        &:nth-child(2) {
+            margin-left: 20px;
+        }
+    }
 }
 
 .button {

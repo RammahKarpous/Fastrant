@@ -10,26 +10,37 @@
                     <div class="input-group">
                         <label for="category_name">Category name</label>
                         <input type="text" id="category_name" name="category_name"/>
-                        {{--                    <img v-if="url" :src="url">--}}
-                        {{--                    <label for="file">Upload file</label>--}}
-                        {{--                    <input type="file" accept="image/*" ref="file" @change="selectAndDisplayFile">--}}
 
-                        <p class="message--error">Error</p>
+                        <label class="image-selector" for="category_image">
+                            <span class="large-text">Add image</span>
+                            <span class="normal-text">Click here to upload an image</span>
+                            <span class="border"></span>
+                        </label>
+                        <input type="file" accept="image/*" hidden id="category_image" name="category_image">
+{{--                        <image-selector/>--}}
                     </div>
 
-                    <button>Add category</button>
+                    <input type="submit" value="Add category" class="button button--primary">
                 </div>
             </div>
         </form>
 
-        <article class="mt-50 categories">
+        <article class="categories">
             <h2>Categories</h2>
 
             <div class="grid g-col-2 gap-20">
+
                 <div class="category">
-                    <button type="submit" class="delete-category">
-                        <img src="../assets/icons/bin.svg" alt=""/>
-                    </button>
+{{--                    <div style="background: url([ DISPLAY CATEGORY IMAGE HERE ]);"></div>--}}
+
+                    <div class="options">
+                        <p>Bananas</p>
+
+                        <div>
+                            <a href="#"><img src="{{ asset('images/icons/edit.svg') }}" alt="Delete [CATEGORY NAME]"/></a>
+                            <a href="#"><img src="{{ asset('images/icons/bin.svg') }}" alt="Delete [CATEGORY NAME]"/></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>

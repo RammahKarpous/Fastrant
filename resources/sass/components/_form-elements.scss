@@ -10,14 +10,6 @@
         grid-template-columns: 1.5fr 1fr;
     }
 
-    .buttons {
-        div a {
-            &:nth-child(2) {
-                margin-left: 20px;
-            }
-        }
-    }
-
     .input-group {
         width: 100%;
         display: flex;
@@ -85,4 +77,31 @@
     height: 348px;
     margin: 32px 0 20px;
     border: 2px solid $tertiary;
+}
+
+.image-selector {
+    @include width(24px);
+    background: $gray;
+    margin: 20px 0;
+    height: 230px;
+    position: relative;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    .large-text, .normal-text {
+        opacity: .7;
+    }
+
+    .border {
+        border: 2px dashed rgba(112, 112, 112, .6);
+        padding: 20px;
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+    }
 }

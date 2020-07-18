@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/add-products', 'ProductsController@addProducts')->name('add-products');
 
     // Category
-    Route::get('/categories', 'CategoriesController@addProducts')->name('categories');
+    Route::get('/categories', 'CategoriesController@categories')->name('categories');
 
     // Auth Routs
     Auth::routes();

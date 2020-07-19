@@ -24,8 +24,17 @@ button {
         flex-flow: column;
         justify-content: space-between;
         border: 2px solid $gray;
-        padding: 10px;
         border-radius: 10px;
+
+        $borderRadius: 8px;
+        .category-image-wrapper {
+            height: 150px;
+            width: 100%;
+            border-top-right-radius: $borderRadius;
+            border-top-left-radius: $borderRadius;
+            background-size: cover !important;
+            background-position: center !important;
+        }
 
         a {
             margin-left: 10px;
@@ -49,6 +58,7 @@ button {
             flex-flow: row wrap;
             justify-content: space-between;
             align-items: center;
+            padding: 10px;
         }
     }
 }

@@ -256,8 +256,16 @@ button.delete-category:hover {
   flex-flow: column;
   justify-content: space-between;
   border: 2px solid #D4D4D4;
-  padding: 10px;
   border-radius: 10px;
+}
+
+.categories .category .category-image-wrapper {
+  height: 150px;
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .categories .category a {
@@ -282,6 +290,7 @@ button.delete-category:hover {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 
 body {

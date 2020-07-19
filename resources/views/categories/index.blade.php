@@ -29,19 +29,32 @@
             <h2>Categories</h2>
 
             <div class="grid g-col-2 gap-20">
+                @if(count($categories) > 0)
+                    @foreach($categories as $category)
+                        <div class="category">
+                            <div class="category-image-wrapper"
+                                style="background: url('{{ asset('storage/images/categories/' . $category->image) }}');"></div>
 
-                <div class="category">
-{{--                    <div style="background: url([ DISPLAY CATEGORY IMAGE HERE ]);"></div>--}}
+                            <div class="options">
+                                <p>{{ $category->name }}</p>
 
-                    <div class="options">
-                        <p>Bananas</p>
+                                <div>
+                                    <a href="#">
+                                        <img src="{{ asset('images/icons/edit.svg') }}"
+                                             alt="Delete {{ $category->name }}"/>
+                                    </a>
 
-                        <div>
-                            <a href="#"><img src="{{ asset('images/icons/edit.svg') }}" alt="Delete [CATEGORY NAME]"/></a>
-                            <a href="#"><img src="{{ asset('images/icons/bin.svg') }}" alt="Delete [CATEGORY NAME]"/></a>
+                                    <a href="#">
+                                        <img src="{{ asset('images/icons/bin.svg') }}"
+                                             alt="Delete {{ $category->name }}"/>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @else
+                    <p>There are no categories</p>
+                @endif
             </div>
         </article>
     </div>

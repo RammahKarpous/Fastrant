@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
     // Category
     Route::get('/categories', 'CategoriesController@categories')->name('categories');
+    Route::post('/categories', 'CategoriesController@addCategories')->name('add-categories');
 
     // Auth Routs
     Auth::routes();

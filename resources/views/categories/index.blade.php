@@ -4,22 +4,27 @@
     <div id="categories" class="wrapper">
         <h2>Add categories</h2>
 
-        <form enctype="multipart/form-data">
+        <form action="{{ route('add-categories') }}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
                         <label for="category_name">Category name</label>
                         <input type="text" id="category_name" name="category_name"/>
-
+                        @error('category_name')
+                    <p class="error">{{ $message }}</p> 
+                        @enderror
                         <label class="image-selector" for="category_image">
                             <span class="large-text">Add image</span>
                             <span class="normal-text">Click here to upload an image</span>
                             <span class="border"></span>
                         </label>
+                        @error('category_image')
+                        <p class="error">{{ $message }}</p> 
+                            @enderror
                         <input type="file" accept="image/*" hidden id="category_image" name="category_image">
                         <image-selector/>
                     </div>
-
+                    @csrf
                     <input type="submit" value="Add category" class="button button--primary">
                 </div>
             </div>

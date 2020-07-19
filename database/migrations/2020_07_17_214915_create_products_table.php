@@ -4,20 +4,24 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Support\Facades\Schema;
 
-    class CreateMenusTable extends Migration {
+    class CreateProductsTable extends Migration {
         /**
          * Run the migrations.
          *
          * @return void
          */
         public function up() {
-            Schema::create( 'menus', function ( Blueprint $table ) {
+            Schema::create( 'products', function ( Blueprint $table ) {
                 $table->id();
                 $table->string( "name" );
                 $table->string( "image" );
-                $table->unsignedBigInteger( "product_id" );
+                $table->double( "price" );
+                $table->unsignedBigInteger( "category_id" );
+                $table->string( "description" );
+                $table->double( "rating" );
+                $table->json( "allergies" )->nullable();
                 $table->timestamps();
-                $table->foreign( 'product_id' )->references( 'id' )->on( 'products' );
+                $table->foreign( 'category_id' )->references( 'id' )->on( 'categories' );
             } );
         }
 
@@ -27,6 +31,6 @@
          * @return void
          */
         public function down() {
-            Schema::dropIfExists( 'menus' );
+            Schema::dropIfExists( 'products' );
         }
     }

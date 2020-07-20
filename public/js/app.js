@@ -51386,28 +51386,45 @@ Vue.component('image-selector', __webpack_require__(/*! ./components/ImageSelect
 var app = new Vue({
   el: '#app'
 }); // Selecting category image ==== CATEGORIES PAGE
+// let catImage = document.querySelector('#category_image'),
+//     imageSelector = document.querySelector('.image-selector');
+//
+// catImage.addEventListener('change', function () {
+//     imageSelector.setAttribute('style', `background: url('${catImage.value}')`);
+//
+//     // console.log(catImage.value);
+// });
 
-var catImage = document.querySelector('#category_image'); // catImage.addEventListener('change', function () {
-//     this.setAttribute('src', catImage.value);
-// })
+function handleFiles(e) {
+  var URL = window.webkitURL || window.URL;
+  var max_width = 400;
+  var max_height = 300;
+  var ctx = document.getElementById('canvas').getContext('2d');
+  var url = URL.createObjectURL(e.target.files[0]);
+  var img = new Image();
 
-$(catImage).change(function () {
-  var input = this;
-  var url = $(this).val();
-  var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+  img.onload = function () {
+    var ratio = 1;
 
-  if (input.files && input.files[0] && (ext === "gif" || ext === "png" || ext === "jpeg" || ext === "jpg")) {
-    var reader = new FileReader();
+    if (img.width > max_width) {
+      ratio = max_width / img.width;
+    }
 
-    reader.onload = function (e) {
-      $('#img').attr('src', e.target.result);
-    };
+    if (ratio * img.height > max_height) {
+      ratio = max_height / img.height;
+    }
 
-    reader.readAsDataURL(input.files[0]);
-  } else {
-    $('#img').attr('src', '/assets/no_preview.png');
-  }
-});
+    ctx.scale(ratio, ratio);
+    ctx.drawImage(img, 0, 0);
+  };
+
+  img.src = url;
+}
+
+window.onload = function () {
+  var input = document.getElementById('#category_image');
+  input.addEventListener('change', handleFiles, false);
+};
 
 /***/ }),
 

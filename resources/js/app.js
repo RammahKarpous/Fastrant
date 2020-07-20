@@ -34,27 +34,37 @@ const app = new Vue({
 
 // Selecting category image ==== CATEGORIES PAGE
 
-let catImage = document.querySelector('#category_image');
-
+// let catImage = document.querySelector('#category_image'),
+//     imageSelector = document.querySelector('.image-selector');
+//
 // catImage.addEventListener('change', function () {
-//     this.setAttribute('src', catImage.value);
-// })
+//     imageSelector.setAttribute('style', `background: url('${catImage.value}')`);
+//
+//     // console.log(catImage.value);
+// });
 
-$(catImage).change(function(){
-    let input = this;
-    let url = $(this).val();
-    let ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-    if (input.files && input.files[0]&& (ext === "gif" || ext === "png" || ext === "jpeg" || ext === "jpg"))
-    {
-        let reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#img').attr('src', e.target.result);
+function handleFiles(e) {
+    let URL = window.webkitURL || window.URL;
+    let max_width = 400;
+    let max_height = 300;
+    let ctx = document.getElementById('canvas').getContext('2d');
+    let url = URL.createObjectURL(e.target.files[0]);
+    let img = new Image();
+    img.onload = function() {
+        let ratio = 1;
+        if (img.width > max_width) {
+            ratio = max_width / img.width;
         }
-        reader.readAsDataURL(input.files[0]);
-    }
-    else
-    {
-        $('#img').attr('src', '/assets/no_preview.png');
-    }
-});
+        if (ratio * img.height > max_height) {
+            ratio = max_height / img.height;
+        }
+        ctx.scale(ratio, ratio);
+        ctx.drawImage(img, 0, 0);
+    };
+    img.src = url;
+}
+
+window.onload = function() {
+    let input = document.getElementById('#category_image');
+    input.addEventListener('change', handleFiles, false);
+};

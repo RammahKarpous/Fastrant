@@ -207,14 +207,22 @@ width: calc(100% - 40px)
 .image-selector {
   padding: 24px;
   width: calc(100% - (24px * 2));
-  background: #D4D4D4;
-  margin: 20px 0;
   height: 230px;
   position: relative;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
+}
+
+.image-selector canvas {
+  background: #D4D4D4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 
 .image-selector .large-text,

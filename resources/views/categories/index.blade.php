@@ -10,20 +10,21 @@
                     <div class="input-group">
                         <label for="category_name">Category name</label>
                         <input type="text" id="category_name" name="category_name"/>
-                        @error('category_name')
-                    <p class="error">{{ $message }}</p> 
-                        @enderror
+                        @error('category_name') <p class="error">{{ $message }}</p>@enderror
+                    </div>
+
+                    <div class="input-group">
                         <label class="image-selector" for="category_image">
                             <span class="large-text">Add image</span>
                             <span class="normal-text">Click here to upload an image</span>
                             <span class="border"></span>
+
+                            <canvas width="400" height="300" id="canvas"></canvas>
                         </label>
-                        @error('category_image')
-                        <p class="error">{{ $message }}</p> 
-                            @enderror
                         <input type="file" accept="image/*" hidden id="category_image" name="category_image">
-                        <image-selector/>
+                        @error('category_image')<p class="error">{{ $message }}</p>@enderror
                     </div>
+
                     @csrf
                     <input type="submit" value="Add category" class="button button--primary">
                 </div>
@@ -38,7 +39,7 @@
                     @foreach($categories as $category)
                         <div class="category">
                             <div class="category-image-wrapper"
-                                style="background: url('{{ asset('storage/images/categories/' . $category->image) }}');"></div>
+                                 style="background: url('{{ asset('storage/images/categories/' . $category->image) }}');"></div>
 
                             <div class="options">
                                 <p>{{ $category->name }}</p>

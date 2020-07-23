@@ -13,10 +13,10 @@
         public function up() {
             Schema::create( 'products', function ( Blueprint $table ) {
                 $table->id();
+                $table->unsignedBigInteger( "category_id" );
                 $table->string( "name" );
                 $table->string( "image" );
                 $table->double( "price" );
-                $table->unsignedBigInteger( "category_id" );
                 $table->string( "description" );
                 $table->double( "rating" );
                 $table->json( "allergies" )->nullable();

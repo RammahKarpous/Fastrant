@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Add Categories')
+
 @section('content')
     <div id="categories" class="wrapper">
         <h2>Add categories</h2>
@@ -19,26 +21,27 @@
                             <span class="normal-text">Click here to upload an image</span>
                             <span class="border"></span>
 
-                            <canvas width="400" height="300" id="canvas"></canvas>
+                            <span id="displayImage"></span>
                         </label>
                         <input type="file" accept="image/*" hidden id="category_image" name="category_image">
                         @error('category_image')<p class="error">{{ $message }}</p>@enderror
                     </div>
 
+                    <input type="submit" value="Add category" class="button button--primary mt-20">
+
                     @csrf
-                    <input type="submit" value="Add category" class="button button--primary">
                 </div>
             </div>
         </form>
 
-        <article class="categories">
+        <article class="cards-wrapper">
             <h2>Categories</h2>
 
             <div class="grid g-col-2 gap-20">
                 @if(count($categories) > 0)
                     @foreach($categories as $category)
-                        <div class="category">
-                            <div class="category-image-wrapper"
+                        <div class="card">
+                            <div class="card-image-wrapper"
                                  style="background: url('{{ asset('storage/images/categories/' . $category->image) }}');"></div>
 
                             <div class="options">
@@ -64,4 +67,24 @@
             </div>
         </article>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#displayImage').css('background', 'url(' + e.target.result + ')');
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#category_image").change(function() {
+            readURL(this);
+        });
+    </script>
 @endsection

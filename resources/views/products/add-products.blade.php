@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="addProducts" class="wrapper">
-        <h2>Add products</h2>
+        <h1 class="page-heading">Add products</h1>
 
         <form>
             <div class="form-wrapper grid gap-30">

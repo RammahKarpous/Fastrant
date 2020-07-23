@@ -6,6 +6,10 @@ h2 {
     padding: .38em 0;
 }
 
+.page-heading {
+    font-size: 50px;
+}
+
 .large-text {
     font-size: 30px;
     font-weight: 700;
@@ -14,4 +18,10 @@ h2 {
 
 .large-text, .normal-text {
     font-family: Arial, 'sans-serif';
+}
+
+// alignment
+
+.text-align-center {
+    text-align: center;
 }

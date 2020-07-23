@@ -14,7 +14,7 @@
 </head>
 <body>
     <div id="app">
-        <x-navigation />
+        <x-navigation></x-navigation>
 
         <main class="py-4">
             @yield('content')
@@ -23,5 +23,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

@@ -2,19 +2,21 @@
   display: grid;
 }
 
-.g-col-2 {
-  grid-template-columns: repeat(2, 1fr);
+// Grid column templates
+@for $i from 1 through 10 {
+    .g-col-#{$i} {
+        grid-template-columns: repeat(#{$i}, 1fr);
+    }
 }
 
-.gap-20 {
-  gap: 20px;
+// Grid gap
+@for $i from 1 through 16 {
+    .gap-#{$i}0 {
+        gap: #{$i}0px;
+    }
 }
 
-.gap-30 {
-  gap: 30px;
-}
-
-// Spacing
-.space-between {
-  justify-content: space-between;
+// spacing
+.justify-self-start {
+    justify-self: start;
 }

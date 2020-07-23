@@ -51394,37 +51394,7 @@ var app = new Vue({
 //
 //     // console.log(catImage.value);
 // });
-
-function handleFiles(e) {
-  var URL = window.webkitURL || window.URL;
-  var max_width = 400;
-  var max_height = 300;
-  var ctx = document.getElementById('canvas').getContext('2d');
-  var url = URL.createObjectURL(e.target.files[0]);
-  var img = new Image();
-
-  img.onload = function () {
-    var ratio = 1;
-
-    if (img.width > max_width) {
-      ratio = max_width / img.width;
-    }
-
-    if (ratio * img.height > max_height) {
-      ratio = max_height / img.height;
-    }
-
-    ctx.scale(ratio, ratio);
-    ctx.drawImage(img, 0, 0);
-  };
-
-  img.src = url;
-}
-
-window.onload = function () {
-  var input = document.getElementById('#category_image');
-  input.addEventListener('change', handleFiles, false);
-};
+//
 
 /***/ }),
 

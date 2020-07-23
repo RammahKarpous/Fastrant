@@ -1,0 +1,48 @@
+.cards-wrapper {
+    margin-top: 30px;
+}
+
+.card {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    border: 2px solid $gray;
+    border-radius: 10px;
+
+    $borderRadius: 8px;
+    .card-image-wrapper {
+        height: 150px;
+        width: 100%;
+        border-top-right-radius: $borderRadius;
+        border-top-left-radius: $borderRadius;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    a {
+        color: $black;
+    }
+
+    .options {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            opacity: .8;
+
+            img {
+                width: 16px;
+
+                &:nth-child(2) {
+                    width: 18px;
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

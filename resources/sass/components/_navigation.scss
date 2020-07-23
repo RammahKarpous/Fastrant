@@ -5,6 +5,7 @@
     float: left;
     background: $white;
     height: 100vh;
+    width: 300px;
 
     ul {
         list-style: none;
@@ -17,5 +18,13 @@
         display: block;
         text-decoration: none;
         color: #000;
+
+        &.current-page {
+            background: $gray;
+        }
+
+        &:hover {
+            background: $gray;
+        }
     }
 }

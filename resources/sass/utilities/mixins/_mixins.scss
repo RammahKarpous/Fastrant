@@ -1,0 +1,70 @@
+// width = 100% - Padding
+@mixin width($padding) {
+  padding: $padding;
+  width: calc(100% - (#{$padding} * 2));
+}
+
+@mixin width-four-padding($top, $right, $bottom, $left) {
+  padding: $top, $right, $bottom, $left;
+  width: calc(100% - (#{$right} + #{$left}) * 2);
+}
+
+@mixin width-three-padding($top, $right_left, $bottom) {
+  padding: $top $right_left $bottom;
+  width: calc(100% - (#{$right_left} * 2));
+}
+
+// Padding
+@mixin padding($top, $right, $bottom, $left) {
+    padding: $top $right $bottom $left;
+}
+
+@for $i from 1 through 10 {
+    .p-#{$i}0 {
+        padding: #{$i}0px;
+    }
+
+    .pt-#{$i}0 {
+        padding-top: #{$i}0px;
+    }
+
+    .pr-#{$i}0 {
+        padding-right: #{$i}0px;
+    }
+
+    .pb-#{$i}0 {
+        padding-bottom: #{$i}0px;
+    }
+
+    .pl-#{$i}0 {
+        padding-left: #{$i}0px;
+    }
+}
+
+// Margin
+@mixin margin($top, $right, $bottom, $left) {
+    margin: $top $right $bottom $left;
+}
+
+@for $i from 1 through 10 {
+
+    .m-#{$i}0 {
+        margin: #{$i}0px;
+    }
+
+    .mt-#{$i}0 {
+        margin-top: #{$i}0px;
+    }
+
+    .mr-#{$i}0 {
+        margin-right: #{$i}0px;
+    }
+
+    .mb-#{$i}0 {
+        margin-bottom: #{$i}0px;
+    }
+
+    .ml-#{$i}0 {
+        margin-left: #{$i}0px;
+    }
+}

@@ -35,7 +35,7 @@ class CategoriesController extends Controller
         return redirect()->back();
     }
 
-    public function deleteCategorie($id)
+    public function deleteCategory($id)
     {
         $category = Category::find($id);
         $category->delete();

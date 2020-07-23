@@ -48,15 +48,23 @@
                                 <p>{{ $category->name }}</p>
 
                                 <div>
-                                    <a href="#">
-                                        <img src="{{ asset('images/icons/edit.svg') }}"
-                                             alt="Delete {{ $category->name }}"/>
-                                    </a>
+                                    <form action="{{ route('delete-category', $category->id) }}" method="POST">
+                                        <button>
+                                            <img src="{{ asset('images/icons/edit.svg') }}"
+                                                 alt="Delete {{ $category->name }}"/>
+                                        </button>
+                                        @csrf
+{{--                                        @method('PUT')--}}
+                                    </form>
 
-                                    <a href="#">
-                                        <img src="{{ asset('images/icons/bin.svg') }}"
-                                             alt="Delete {{ $category->name }}"/>
-                                    </a>
+                                    <form action="{{ route('delete-category', $category->id) }}" method="POST">
+                                        <button>
+                                            <img src="{{ asset('images/icons/bin.svg') }}"
+                                                 alt="Delete {{ $category->name }}"/>
+                                        </button>
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +83,7 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     $('#displayImage').css('background', 'url(' + e.target.result + ')');
                 }
 
@@ -83,7 +91,7 @@
             }
         }
 
-        $("#category_image").change(function() {
+        $("#category_image").change(function () {
             readURL(this);
         });
     </script>

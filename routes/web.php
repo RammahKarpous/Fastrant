@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
     // Category
     Route::get('/categories', 'CategoriesController@categories')->name('categories');
     Route::post('/categories', 'CategoriesController@addCategories')->name('add-categories');
+    Route::delete('/delete-category/{id}', 'CategoriesController@deleteCategory')->name('delete-category');
 
     // Auth Routs
     Auth::routes();

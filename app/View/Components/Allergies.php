@@ -20,7 +20,14 @@
          * @return \Illuminate\View\View|string
          */
         public function render() {
-            $allergies = [
+
+            return view( 'components.allergies', [
+                'allergies' => $this->list()
+            ] );
+        }
+
+        public function list() {
+            return [
                 'corn'      => [
                     'identifier' => 'corn',
                     'allergy'    => 'Corn'
@@ -66,9 +73,5 @@
                     'allergy'    => 'FPIES'
                 ],
             ];
-
-            return view( 'components.allergies', [
-                'allergies' => $allergies
-            ] );
         }
     }

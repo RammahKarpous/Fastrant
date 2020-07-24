@@ -31,8 +31,7 @@
                     <div class="input-group mt-20">
                         <label>Allergies</label>
 
-{{--                        <x-allergies />--}}
-
+                        <x-allergies />
                     </div>
 
                     <div class="flex space-between buttons">

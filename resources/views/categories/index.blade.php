@@ -47,18 +47,14 @@
                             <div class="options">
                                 <p>{{ $category->name }}</p>
 
-                                <div>
-                                    <form action="{{ route('delete-category', $category->id) }}" method="POST">
-                                        <button>
-                                            <img src="{{ asset('images/icons/edit.svg') }}"
-                                                 alt="Delete {{ $category->name }}"/>
-                                        </button>
-                                        @csrf
-{{--                                        @method('PUT')--}}
-                                    </form>
+                                <div class="flex">
+                                    <button type="button" class="icon icon--style">
+                                        <img src="{{ asset('images/icons/edit.svg') }}"
+                                             alt="Delete {{ $category->name }}"/>
+                                    </button>
 
                                     <form action="{{ route('delete-category', $category->id) }}" method="POST">
-                                        <button>
+                                        <button type="submit" class="icon icon--style">
                                             <img src="{{ asset('images/icons/bin.svg') }}"
                                                  alt="Delete {{ $category->name }}"/>
                                         </button>

@@ -46,6 +46,8 @@
                     
                     <x-allergies/>
 
+                    <x-allergies/>
+
                     <div class="flex space-between buttons">
                         <a href="{{ url()->previous() }}" class="button button--error">Cancel</a>
 

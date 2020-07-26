@@ -42,9 +42,9 @@
 
                     <div class="input-group mt-20">
                         <label>Allergies</label>
-
-                        <x-allergies/>
                     </div>
+
+                    <x-allergies/>
 
                     <div class="flex space-between buttons">
                         <a href="{{ url()->previous() }}" class="button button--error">Cancel</a>

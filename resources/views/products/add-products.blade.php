@@ -4,7 +4,7 @@
     <div id="addProducts" class="wrapper">
         <h1 class="page-heading">Add products</h1>
 
-        <form>
+    <form action="{{ route('upload-products') }}" method="POST">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
@@ -43,8 +43,6 @@
                     <div class="input-group mt-20">
                         <label>Allergies</label>
                     </div>
-                    
-                    <x-allergies/>
 
                     <x-allergies/>
 
@@ -68,7 +66,7 @@
                             <span id="displayImage"></span>
                         </label>
                         <input type="file" accept="image/*" hidden id="image" name="image">
-                        @error('category_image')<p class="error">{{ $message }}</p>@enderror
+                        @error('image')<p class="error">{{ $message }}</p>@enderror
                     </div>
                 </div>
             </div>
@@ -92,7 +90,7 @@
             }
         }
 
-        $("#category_image").change(function () {
+        $("#image").change(function () {
             readURL(this);
         });
 

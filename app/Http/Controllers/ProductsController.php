@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('products.index');
     }
 
-    public function addProducts() {
+    public function addProducts()
+    {
 
         $categories = Category::all();
 
@@ -21,22 +23,31 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function uploadProducts() {
+    public function uploadProducts()
+    {
         $data = request()->validate([
             'name' => 'required',
             'price' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'required|file|image'
+            'allergies' => 'required',
+            'image' => 'required|file'
         ]);
 
-        $file = request()->category_image->getClientOriginalName();
-        request()->category_image->storeAs('images/products', $file, 'public');
+        $file = request()->image->getClientOriginalName();
+        request()->image->storeAs('images/products', $file, 'public');
 
-        $category = new Product();
-        $category->name = request('category_name');
-        $category->image = $file;
-        $category->save();
+        $slug = strtolower(str_replace(' ', '_', request('name')));
+
+        $product = new Product();
+        $product->slug = $slug;
+        $product->name = request('name');
+        $product->price = request('price');
+        $product->category_id = request('category');
+        $product->description = request('description');
+        $product->allergies = request('allergies');
+        $product->image = $file;
+        $product->save();
 
         return redirect()->back();
     }

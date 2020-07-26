@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
     // Products
     Route::get('/products', 'ProductsController@index')->name('products');
     Route::get('/add-products', 'ProductsController@addProducts')->name('add-products');
+    Route::post('/add-products', 'ProductsController@uploadProducts')->name('upload-products');
 
     // Categories
     Route::get('/categories', 'CategoriesController@categories')->name('categories');

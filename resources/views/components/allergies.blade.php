@@ -51,7 +51,7 @@
 
     <div class="allergy checkbox">
         <input type="checkbox" value="No Allergies" id="no_allergies">
-        <label for="no_allergies">Wheat</label>
+        <label for="no_allergies">No allergies</label>
     </div>
 
     {{--    @foreach($allergies as $allergy)--}}

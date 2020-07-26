@@ -21,6 +21,8 @@
          */
         public function render() {
 
+//            dd($this->list());
+
             return view( 'components.allergies', [
                 'allergies' => $this->list()
             ] );
@@ -29,47 +31,47 @@
         public function list() {
             return [
                 'corn'      => [
-                    'identifier' => 'corn',
+                    'name' => 'corn',
                     'allergy'    => 'Corn'
                 ],
                 'eggs'      => [
-                    'identifier' => 'eggs',
+                    'name' => 'eggs',
                     'allergy'    => 'Eggs'
                 ],
                 'fish'      => [
-                    'identifier' => 'fish',
+                    'name' => 'fish',
                     'allergy'    => 'Fish'
                 ],
                 'meat'      => [
-                    'identifier' => 'meat',
+                    'name' => 'meat',
                     'allergy'    => 'Meat'
                 ],
                 'milk'      => [
-                    'identifier' => 'milk',
+                    'name' => 'milk',
                     'allergy'    => 'Milk'
                 ],
                 'peanut'    => [
-                    'identifier' => 'peanut',
+                    'name' => 'peanut',
                     'allergy'    => 'Peanut'
                 ],
                 'shellfish' => [
-                    'identifier' => 'shellfish',
+                    'name' => 'shellfish',
                     'allergy'    => 'Shellfish'
                 ],
                 'soy'       => [
-                    'identifier' => 'soy',
+                    'name' => 'soy',
                     'allergy'    => 'Soy'
                 ],
                 'free_nut'  => [
-                    'identifier' => 'free_nut',
+                    'name' => 'free_nut',
                     'allergy'    => 'Free nut'
                 ],
                 'wheat'     => [
-                    'identifier' => 'wheat',
+                    'name' => 'wheat',
                     'allergy'    => 'Wheat'
                 ],
                 'fpies'     => [
-                    'identifier' => 'fpies',
+                    'name' => 'fpies',
                     'allergy'    => 'FPIES'
                 ],
             ];

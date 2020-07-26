@@ -531,6 +531,38 @@ a {
   grid-template-columns: 1.5fr 1fr;
 }
 
+#allergies {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.checkbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-self: flex-start;
+}
+
+.checkbox input,
+.checkbox label {
+  float: left;
+}
+
+.checkbox label {
+  margin-right: 10px;
+}
+
+.checkbox label .box {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  padding: 0 8px;
+  margin-right: 5px;
+}
+
+.checkbox input:checked ~ label .box {
+  background: black;
+}
+
 .input-group {
   width: 100%;
   display: flex;

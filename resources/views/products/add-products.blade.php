@@ -20,6 +20,18 @@
                         </div>
 
                         {{-- Loop through categories --}}
+                        <div class="input-group">
+                            <label for="category">Category</label>
+                            <select name="category" id="category">
+                                @if(count($categories) > 0)
+                                    <option value="select" disabled selected>Please select a category</option>
+
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
 
                     </div>
 
@@ -31,14 +43,14 @@
                     <div class="input-group mt-20">
                         <label>Allergies</label>
 
-                        <x-allergies />
+                        <x-allergies/>
                     </div>
 
                     <div class="flex space-between buttons">
-                        <button type="button" class="button button--error">Cancel</button>
+                        <a href="{{ url()->previous() }}" class="button button--error">Cancel</a>
 
                         <div>
-                            <button type="button" class="button button--danger">Clear</button>
+                            <button type="button" id="clearForm" class="button button--danger">Clear</button>
                             <button type="submit" class="button button--primary ml-20">Add product</button>
                         </div>
                     </div>
@@ -80,6 +92,12 @@
 
         $("#category_image").change(function () {
             readURL(this);
+        });
+
+        let clear = document.querySelector('#clearForm');
+
+        clear.addEventListener('click', function () {
+            console.log('cleared!');
         });
     </script>
 @endsection

@@ -2,6 +2,37 @@
     grid-template-columns: 1.5fr 1fr;
 }
 
+#allergies {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.checkbox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-self: flex-start;
+
+    input, label {
+        float: left;
+    }
+
+    label {
+        margin-right: 10px;
+
+        .box {
+            width: 10px;
+            height: 10px;
+            border: 1px solid black;
+            padding: 0 8px;
+            margin-right: 5px;
+        }
+    }
+
+    input:checked ~ label .box {
+        background: black;
+    }
+}
+
 .input-group {
     width: 100%;
     display: flex;

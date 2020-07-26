@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,15 @@ class ProductsController extends Controller
     }
 
     public function addProducts() {
+
+        $categories = Category::all();
+
+        return view('products.add-products', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function uploadCategory() {
         $data = request()->validate([
             'category_name' => 'required',
             'image' => 'required|file|image'
@@ -24,6 +34,7 @@ class ProductsController extends Controller
         $category->name = request('category_name');
         $category->image = $file;
         $category->save();
-        return view('products.add-products');
+
+        return redirect()->back();
     }
 }

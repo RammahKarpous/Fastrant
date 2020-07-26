@@ -21,9 +21,12 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function uploadCategory() {
+    public function uploadProducts() {
         $data = request()->validate([
-            'category_name' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'description' => 'required',
             'image' => 'required|file|image'
         ]);
 

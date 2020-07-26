@@ -8,14 +8,14 @@
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
-                        <label for="product-name">Product name</label>
-                        <input type="text" name="product-name" id="product-name"/>
+                        <label for="name">Product name</label>
+                        <input type="text" name="name" id="name"/>
                     </div>
 
                     <div class="grid g-col-2 gap-20">
                         <div class="input-group">
-                            <label for="product-price">Product price</label>
-                            <input type="text" name="product-price" id="product-price">
+                            <label for="price">Product price</label>
+                            <input type="text" name="price" id="price">
                             <p class="currency">£</p>
                         </div>
 
@@ -27,7 +27,7 @@
                                     <option value="select" disabled selected>Please select a category</option>
 
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -43,6 +43,8 @@
                     <div class="input-group mt-20">
                         <label>Allergies</label>
                     </div>
+                    
+                    <x-allergies/>
 
                     <x-allergies/>
 

@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
     Route::post('/categories', 'CategoriesController@addCategories')->name('add-categories');
     Route::delete('/delete-category/{id}', 'CategoriesController@deleteCategory')->name('delete-category');
 
+    // Menus
+    Route::get('/menus', 'MenusController@index')->name('menus');
+
     // Auth Routs
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');

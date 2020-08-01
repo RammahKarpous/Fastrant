@@ -4,7 +4,7 @@
     <div id="addProducts" class="wrapper">
         <h1 class="page-heading">Add products</h1>
 
-    <form action="{{ route('upload-products') }}" method="POST">
+    <form action="{{ route('upload-products') }}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">

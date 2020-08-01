@@ -29,51 +29,53 @@
         }
 
         public function list() {
-            return [
-                'corn'      => [
-                    'name' => 'corn',
-                    'allergy'    => 'Corn'
+            $allergies = collect( [
+                [
+                    'name'    => 'corn',
+                    'allergy' => 'Corn'
                 ],
-                'eggs'      => [
-                    'name' => 'eggs',
-                    'allergy'    => 'Eggs'
+                [
+                    'name'    => 'eggs',
+                    'allergy' => 'Eggs'
                 ],
-                'fish'      => [
-                    'name' => 'fish',
-                    'allergy'    => 'Fish'
+                [
+                    'name'    => 'fish',
+                    'allergy' => 'Fish'
                 ],
-                'meat'      => [
-                    'name' => 'meat',
-                    'allergy'    => 'Meat'
+                [
+                    'name'    => 'meat',
+                    'allergy' => 'Meat'
                 ],
-                'milk'      => [
-                    'name' => 'milk',
-                    'allergy'    => 'Milk'
+                [
+                    'name'    => 'milk',
+                    'allergy' => 'Milk'
                 ],
-                'peanut'    => [
-                    'name' => 'peanut',
-                    'allergy'    => 'Peanut'
+                [
+                    'name'    => 'peanut',
+                    'allergy' => 'Peanut'
                 ],
-                'shellfish' => [
-                    'name' => 'shellfish',
-                    'allergy'    => 'Shellfish'
+                [
+                    'name'    => 'shellfish',
+                    'allergy' => 'Shellfish'
                 ],
-                'soy'       => [
-                    'name' => 'soy',
-                    'allergy'    => 'Soy'
+                [
+                    'name'    => 'soy',
+                    'allergy' => 'Soy'
                 ],
-                'free_nut'  => [
-                    'name' => 'free_nut',
-                    'allergy'    => 'Free nut'
+                [
+                    'name'    => 'free_nut',
+                    'allergy' => 'Free nut'
                 ],
-                'wheat'     => [
-                    'name' => 'wheat',
-                    'allergy'    => 'Wheat'
+                [
+                    'name'    => 'wheat',
+                    'allergy' => 'Wheat'
                 ],
-                'fpies'     => [
-                    'name' => 'fpies',
-                    'allergy'    => 'FPIES'
+                [
+                    'name'    => 'fpies',
+                    'allergy' => 'FPIES'
                 ],
-            ];
+            ] );
+
+            return $allergies->all();
         }
     }

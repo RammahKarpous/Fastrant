@@ -1,7 +1,25 @@
 .checkbox {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 
+    &__input {
+        &:checked ~ label span {
+            background: $tertiary;
+        }
+    }
 
+    &__checkbox-element {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    &__box {
+        margin-right: 10px;
+        border: 2px solid $tertiary;
+        padding: 8px;
+    }
 }

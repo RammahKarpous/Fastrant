@@ -692,9 +692,27 @@ a {
 }
 
 .checkbox {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.checkbox__input:checked ~ label span {
+  background: #3C888D;
+}
+
+.checkbox__checkbox-element {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkbox__box {
+  margin-right: 10px;
+  border: 2px solid #3C888D;
+  padding: 8px;
 }
 
 .flex {

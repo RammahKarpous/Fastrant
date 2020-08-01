@@ -74,6 +74,10 @@
                     'name'    => 'fpies',
                     'allergy' => 'FPIES'
                 ],
+                [
+                    'name'    => 'no_allergies',
+                    'allergy' => 'No allergies'
+                ],
             ] );
 
             return $allergies->all();

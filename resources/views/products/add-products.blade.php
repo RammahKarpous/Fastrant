@@ -12,11 +12,16 @@
                         <input type="text" name="name" id="name"/>
                     </div>
 
-                    <div class="grid g-col-2 gap-20">
+                    <div class="grid g-col-3 gap-20">
                         <div class="input-group">
                             <label for="price">Product price</label>
                             <input type="text" name="price" id="price">
                             <p class="currency">£</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="price">Spice rating</label>
+                            <input type="number" name="price" id="price" min="1" max="5" value="1">
                         </div>
 
                         {{-- Loop through categories --}}

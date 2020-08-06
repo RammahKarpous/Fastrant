@@ -5,6 +5,7 @@
 @import 'abstract/variables';
 @import 'abstract/font';
 @import 'abstract/colours';
+@import 'abstract/opacity';
 
 // Utilities
 @import "utilities/mixins/mixins";
@@ -17,6 +18,7 @@
 @import "components/navigation";
 @import "components/form-elements";
 @import "components/card";
+@import "components/overlay";
 
 @import "components/form-elements/checkbox";
 

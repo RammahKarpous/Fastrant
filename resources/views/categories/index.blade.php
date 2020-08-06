@@ -37,7 +37,7 @@
         <article class="cards-wrapper">
             <h2>Categories</h2>
 
-            <div class="grid g-col-2 gap-20">
+            <div class="grid g-col-4 gap-20">
                 @if(count($categories) > 0)
                     @foreach($categories as $category)
                         <div class="card">
@@ -75,6 +75,7 @@
 
 @section('scripts')
     <script>
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -90,5 +91,6 @@
         $("#category_image").change(function () {
             readURL(this);
         });
+
     </script>
 @endsection

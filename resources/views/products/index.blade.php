@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="products" class="wrapper">
-        <div class="flex space-between align-center">
+        <div class="flex space-between align-items-center">
             <h1 class="page-heading">Products</h1>
 
             <a href="{{ route('add-products') }}" class="button button--primary">Add a new product</a>
@@ -26,24 +26,38 @@
 
         <div class="cards-wrapper">
             <div class="grid g-col-4 gap-20">
-                <div class="card">
-                    <a href="#">
-                        <div class="card-image-wrapper"
-                             style="background: url('{{ asset('storage/images/products/burger.png') }}');"></div>
+                @if(count($products) > 0)
+                    @foreach($products as $product)
+                        <div class="card">
+                            <a href="#">
+                                <div class="card-image-wrapper"
+                                     style="background: url('{{ asset('storage/images/products/' . $product->image) }}');"></div>
 
-                        <div class="flex space-between p-10">
-                            <p>First ever burger</p>
+                                <div class="flex space-between p-10">
+                                    <p>{{ $product->name }}</p>
 
-                            <div class="options">
-                                <a href="#"><img src="{{ asset('images/icons/edit.svg') }}"
-                                                 alt="Delete [ PRODUCT NAME ]"/></a>
+                                    <div class="options">
+                                        <a href="#"><img src="{{ asset('images/icons/edit.svg') }}"
+                                                         alt="Delete [ PRODUCT NAME ]"/></a>
 
-                                <a class="ml-10" href="#"><img src="{{ asset('images/icons/bin.svg') }}"
-                                                 alt="Delete [ PRODUCT NAME ]"/></a>
-                            </div>
+                                        <form action="{{ route('delete-product', $product->id) }}" method="POST">
+                                            <button type="submit" class="icon icon--style">
+                                                <img src="{{ asset('images/icons/bin.svg') }}"
+                                                     alt="Delete {{ $product->name }}"/>
+                                            </button>
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
+                    @endforeach
+
+                    @else
+
+                    <p>There are no products</p>
+                @endif
             </div>
         </div>
     </div>

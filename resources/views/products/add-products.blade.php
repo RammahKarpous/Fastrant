@@ -4,7 +4,7 @@
     <div id="addProducts" class="wrapper">
         <h1 class="page-heading">Add products</h1>
 
-    <form action="{{ route('upload-products') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('upload-products') }}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
@@ -15,13 +15,19 @@
                     <div class="grid g-col-3 gap-20">
                         <div class="input-group">
                             <label for="price">Product price</label>
-                            <input type="text" name="price" id="price">
+                            <input type="text" name="price" class="pl-20" id="price">
                             <p class="currency">£</p>
                         </div>
 
                         <div class="input-group">
-                            <label for="price">Spice rating</label>
-                            <input type="number" name="price" id="price" min="1" max="5" value="1">
+                            <label for="spice">Spice rating</label>
+                            <select name="spice" id="spice">
+                                <option value="select" disabled selected>Please select a spice level</option>
+                                <option value="0">No spice</option>
+                                <option value="1">Mild</option>
+                                <option value="2">Hot</option>
+                                <option value="3">Extreme</option>
+                            </select>
                         </div>
 
                         {{-- Loop through categories --}}

@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
     public function index()
     {
-        return view('products.index');
+        return view('products.index', [
+            'products' => Product::all()
+        ]);
     }
 
     public function addProducts()
@@ -28,6 +31,7 @@ class ProductsController extends Controller
         $data = request()->validate([
             'name' => 'required',
             'price' => 'required',
+            'spice' => 'required',
             'category' => 'required',
             'description' => 'required',
             'allergies' => 'required',
@@ -37,7 +41,7 @@ class ProductsController extends Controller
         $file = request()->image->getClientOriginalName();
         request()->image->storeAs('images/products', $file, 'public');
 
-        $slug = strtolower(str_replace(' ', '_', request('name')));
+        $slug = Str::slug(request('name'), '_');
 
         $product = new Product();
         $product->slug = $slug;
@@ -45,10 +49,22 @@ class ProductsController extends Controller
         $product->price = request('price');
         $product->category_id = request('category');
         $product->description = request('description');
+        $product->spice = request('spice');
         $product->allergies = request('allergies');
         $product->image = $file;
         $product->save();
 
+        return request()->route('products');
+    }
+
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
         return redirect()->back();
+    }
+
+    public function filterProducts() {
+
     }
 }

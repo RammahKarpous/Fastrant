@@ -15,3 +15,11 @@ button {
         }
     }
 }
+
+.update-category-form {
+    padding: 30px;
+    background: $white;
+    box-shadow: 0 0 60px transparentize($black, .9);
+    border-radius: 10px;
+    width: 700px;
+}

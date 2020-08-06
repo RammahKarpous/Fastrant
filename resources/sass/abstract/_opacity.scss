@@ -1,0 +1,8 @@
+@for $i from 1 through 10 {
+
+    $decimal: 0.1 * $i;
+
+    .op-#{$i}0 {
+        opacity: $decimal;
+    }
+}

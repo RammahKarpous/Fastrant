@@ -16,6 +16,13 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function filter()
+    {
+        return view('products.index', [
+            'products' => Product::orderBy('name', request('filter'))
+        ]);
+    }
+
     public function addProducts()
     {
 
@@ -54,7 +61,7 @@ class ProductsController extends Controller
         $product->image = $file;
         $product->save();
 
-        return request()->route('products');
+        return redirect()->route('products');
     }
 
     public function deleteProduct($id)

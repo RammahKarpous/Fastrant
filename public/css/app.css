@@ -744,6 +744,21 @@ a {
   background: rgba(255, 255, 255, 0.9);
 }
 
+.icon {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.icon img {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.icon:hover img {
+  opacity: 1;
+}
+
 .checkbox {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

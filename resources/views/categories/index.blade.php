@@ -44,17 +44,16 @@
                             <div class="card-image-wrapper"
                                  style="background: url('{{ asset('storage/images/categories/' . $category->image) }}');"></div>
 
-                            <div class="options">
+                            <div class="options p-10">
                                 <p>{{ $category->name }}</p>
 
-                                <div class="flex">
-                                    <button type="button" class="icon icon--style">
+                                <div class="flex space-between align-items-center">
+                                    <a href="{{ route('show-update-categories', $category->slug) }}" class="icon icon--style mr-10">
                                         <img src="{{ asset('images/icons/edit.svg') }}"
-                                             alt="Delete {{ $category->name }}"/>
-                                    </button>
+                                             alt="Delete {{ $category->name }}"/></a>
 
                                     <form action="{{ route('delete-category', $category->id) }}" method="POST">
-                                        <button type="submit" class="icon icon--style">
+                                        <button type="submit" class="icon">
                                             <img src="{{ asset('images/icons/bin.svg') }}"
                                                  alt="Delete {{ $category->name }}"/>
                                         </button>

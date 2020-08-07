@@ -1,0 +1,14 @@
+.icon {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    img {
+        opacity: .8;
+        transition: .3s;
+    }
+
+    &:hover img {
+        opacity: 1;
+    }
+}

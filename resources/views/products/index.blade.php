@@ -8,13 +8,14 @@
             <a href="{{ route('add-products') }}" class="button button--primary">Add a new product</a>
         </div>
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('filter-products') }}">
             <div class="form-wrapper grid gap-30">
                 <div class="grid g-col-2 gap-20 align-flex-end">
                     <div class="input-group">
-                        <label for="categories">Category</label>
-                        <select name="categories" id="categories">
-                            {{-- [ LOOP THROUGH CATEGORIES FROM DATABASE ] --}}
+                        <label for="filter">Category</label>
+                        <select name="filter" id="filter">
+                            <option value="asc">a-z</option>
+                            <option value="decs">z-a</option>
                         </select>
                     </div>
 
@@ -54,7 +55,7 @@
                         </div>
                     @endforeach
 
-                    @else
+                @else
 
                     <p>There are no products</p>
                 @endif

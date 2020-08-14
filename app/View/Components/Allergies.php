@@ -21,8 +21,6 @@
          */
         public function render() {
 
-//            dd($this->list());
-
             return view( 'components.allergies', [
                 'allergies' => $this->list()
             ] );

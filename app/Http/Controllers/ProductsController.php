@@ -48,12 +48,59 @@ class ProductsController extends Controller
         $file = request()->image->getClientOriginalName();
         request()->image->storeAs('images/products', $file, 'public');
 
+        $slug = Str::slug(request('name'), '-');
+
+        $product = new Product();
+        $product->slug = $slug;
+        $product->name = request('name');
+        $product->price = request('price');
+        $product->category_id = request('category');
+        $product->description = request('description');
+        $product->spice = request('spice');
+        $product->allergies = request('allergies');
+        $product->image = $file;
+        $product->save();
+
+        return redirect()->route('products');
+    }
+
+    public function updateProductForm($slug) {
+        $product = Product::where('slug', $slug)->first();
+        $categories = Category::all();
+
+        return view('products.update', [
+            'product' => $product,
+            'categories' => $categories
+        ]);
+    }
+
+    public function updateProducts()
+    {
+        $data = request()->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'spice' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'allergies' => 'required',
+            'image' => 'required|file'
+        ]);
+
         $slug = Str::slug(request('name'), '_');
 
         $product = new Product();
         $product->slug = $slug;
         $product->name = request('name');
         $product->price = request('price');
+
+        if (request('category_image')) {
+            $file = request()->image->getClientOriginalName();
+            request()->image->storeAs('images/products', $file, 'public');
+            $product->image = $file;
+        } else {
+            $product->image = request('selected_image');
+        }
+
         $product->category_id = request('category');
         $product->description = request('description');
         $product->spice = request('spice');

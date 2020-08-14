@@ -38,8 +38,8 @@
                                     <p>{{ $product->name }}</p>
 
                                     <div class="options">
-                                        <a href="#"><img src="{{ asset('images/icons/edit.svg') }}"
-                                                         alt="Delete [ PRODUCT NAME ]"/></a>
+                                        <a href="{{ route('update-product-form', $product->slug) }}"><img src="{{ asset('images/icons/edit.svg') }}"
+                                                         alt="Delete {{ $product->name }}"/></a>
 
                                         <form action="{{ route('delete-product', $product->id) }}" method="POST">
                                             <button type="submit" class="icon icon--style">

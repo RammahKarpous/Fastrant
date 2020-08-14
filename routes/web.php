@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('/add-products', 'ProductsController@addProducts')->name('add-products');
     Route::post('/add-products', 'ProductsController@uploadProducts')->name('upload-products');
 
+    Route::get('/update-products/{slug}', 'ProductsController@updateProductForm')->name('update-product-form');
+    Route::post('/update-products', 'ProductsController@storeProducts')->name('store-updated-product');
+
     Route::delete('/delete-product/{id}', 'ProductsController@deleteProduct')->name('delete-product');
 
     // Categories

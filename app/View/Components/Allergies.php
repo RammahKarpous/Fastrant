@@ -2,6 +2,7 @@
 
     namespace App\View\Components;
 
+    use App\Product;
     use Illuminate\View\Component;
 
     class Allergies extends Component {
@@ -21,8 +22,11 @@
          */
         public function render() {
 
+            $db_allergies = Product::all();
+
             return view( 'components.allergies', [
-                'allergies' => $this->list()
+                'allergies' => $this->list(),
+                'db_allergies' => $db_allergies
             ] );
         }
 

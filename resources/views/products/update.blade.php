@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="addProducts" class="wrapper">
-        <h1 class="page-heading">Add products</h1>
+        <h1 class="page-heading">Update products</h1>
 
         <form action="{{ route('store-updated-product') }}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
@@ -15,7 +15,7 @@
                     <div class="grid g-col-3 gap-20">
                         <div class="input-group">
                             <label for="price">Product price</label>
-                            <input type="text" name="price" class="pl-20" id="price">
+                            <input type="text" name="price" class="pl-20" id="price" value="{{ $product->price }}">
                             <p class="currency">£</p>
                         </div>
 
@@ -53,7 +53,25 @@
                         <label>Allergies</label>
                     </div>
 
-                    <x-allergies/>
+{{--                    <x-allergies>--}}
+{{--                        @foreach($product->allergies as $allergy)--}}
+{{--                            {{ $allergy }}--}}
+{{--                        @endforeach--}}
+{{--                    </x-allergies>--}}
+
+                    <div class="checkbox">
+                        @foreach($allergies as $allergy)
+                            <div class="checkbox__wrapper">
+                                <input type="checkbox" class="checkbox__input" {{ $allergy['allergy'] ? 'checked' : '' }} name="allergies[]" value="{{ $allergy['allergy'] }}"
+                                       id="{{ $allergy['name'] }}" hidden>
+
+                                <label for="{{ $allergy['name'] }}" class="checkbox__checkbox-element">
+                                    <span class="checkbox__box"></span>
+                                    {{ $allergy['allergy'] }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
 
                     <div class="flex space-between buttons">
                         <a href="{{ url()->previous() }}" class="button button--error">Cancel</a>
@@ -67,15 +85,13 @@
 
                 <div>
                     <div class="input-group">
-                        <label class="image-selector" for="image">
-                            <span class="large-text">Add image</span>
-                            <span class="normal-text">Click here to upload an image</span>
-                            <span class="border"></span>
-
-                            <span id="displayImage"></span>
+                        <label class="image-selector" for="category_image">
+                            <span id="displayImage" style="background: url('{{ asset('storage/images/products/' . $product->image) }}')"></span>
+                            <input type="hidden" name="selected_image" value="{{ $category->image }}">
                         </label>
-                        <input type="file" accept="image/*" hidden id="image" name="image">
-                        @error('image')<p class="error">{{ $message }}</p>@enderror
+
+                        <input type="file" accept="image/*" hidden id="category_image" name="category_image">
+                        @error('category_image')<p class="error">{{ $message }}</p>@enderror
                     </div>
                 </div>
             </div>

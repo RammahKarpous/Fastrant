@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
+use App\View\Components\Allergies;
 
 class ProductsController extends Controller
 {
@@ -67,10 +69,13 @@ class ProductsController extends Controller
     public function updateProductForm($slug) {
         $product = Product::where('slug', $slug)->first();
         $categories = Category::all();
+        $allergies = new Allergies();
+        $allergies->list();
 
         return view('products.update', [
             'product' => $product,
-            'categories' => $categories
+            'categories' => $categories,
+            'allergies' => $allergies
         ]);
     }
 

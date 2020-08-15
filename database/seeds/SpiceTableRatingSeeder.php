@@ -12,7 +12,7 @@ class SpiceTableRatingSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('spice_rating')->insert( [
+        DB::table('spice_ratings')->insert( [
             [
                 'spice'    => 'No spice',
             ],

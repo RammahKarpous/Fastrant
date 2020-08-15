@@ -19,10 +19,11 @@
                 $table->string( "image" );
                 $table->double( "price" );
                 $table->string( "description" );
-                $table->integer( "spice" );
+                $table->unsignedBigInteger( "spice_id" );
                 $table->json( "allergies" )->nullable();
                 $table->timestamps();
                 $table->foreign( 'category_id' )->references( 'id' )->on( 'categories' );
+                $table->foreign( 'spice_id' )->references( 'id' )->on( 'spice_ratings' );
             } );
         }
 

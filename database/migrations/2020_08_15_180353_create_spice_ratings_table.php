@@ -15,6 +15,7 @@ class CreateSpiceRatingsTable extends Migration
     {
         Schema::create('spice_ratings', function (Blueprint $table) {
             $table->id();
+            $table->string('spice');
             $table->timestamps();
         });
     }

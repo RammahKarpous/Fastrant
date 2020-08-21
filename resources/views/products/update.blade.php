@@ -55,14 +55,7 @@
                     <div class="input-group mt-20">
                         <label>Allergies</label>
                     </div>
-
-                    {{--                    <x-allergies>--}}
-                    {{--                        @foreach($product->allergies as $allergy)--}}
-                    {{--                            {{ $allergy }}--}}
-                    {{--                        @endforeach--}}
-                    {{--                    </x-allergies>--}}
-
-
+                    
                     <div class="checkbox">
                         @foreach($allergies as $allergy)
                             <div class="checkbox__wrapper">

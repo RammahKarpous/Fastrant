@@ -4,7 +4,7 @@
     <div id="addProducts" class="wrapper">
         <h1 class="page-heading">Update products</h1>
 
-        <form action="{{ route('store-updated-product') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('updated-product', $product->slug)}}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
@@ -93,18 +93,19 @@
 
                 <div>
                     <div class="input-group">
-                        <label class="image-selector" for="category_image">
+                        <label class="image-selector" for="image">
                             <span id="displayImage"
                                   style="background: url('{{ asset('storage/images/products/' . $product->image) }}')"></span>
-                            <input type="hidden" name="selected_image" value="{{ $category->image }}">
+                            <input type="hidden" name="selected_image" value="{{ $product->image }}">
                         </label>
 
-                        <input type="file" accept="image/*" hidden id="category_image" name="category_image">
-                        @error('category_image')<p class="error">{{ $message }}</p>@enderror
+                        <input type="file" accept="image/*" hidden id="image" name="product_image">
+                        @error('product_image')<p class="error">{{ $message }}</p>@enderror
                     </div>
                 </div>
             </div>
-
+            <input type="hidden" name="delete-image" value="{{ $product->image }}">
+            @method('PUT')
             @csrf
         </form>
     </div>

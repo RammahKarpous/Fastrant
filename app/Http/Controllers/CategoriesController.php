@@ -51,6 +51,7 @@ class CategoriesController extends Controller
             $file = request()->category_image->getClientOriginalName();
             request()->category_image->storeAs('images/categories', $file, 'public');
             $category->image = $file;
+            Storage::delete('/public/images/categories/'.request('delete-image'));
         } else {
             $category->image = request('selected_image');
         }
@@ -73,6 +74,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        Storage::delete('/public/images/categories/'.request('delete-image'));
         return redirect()->back();
     }
 }

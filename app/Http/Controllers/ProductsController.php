@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use App\View\Components\Allergies;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -33,7 +34,8 @@ class ProductsController extends Controller
         $categories = Category::all();
 
         return view('products.add-products', [
-            'categories' => $categories
+            'categories' => $categories,
+            'spiceRatings' => SpiceRating::all()
         ]);
     }
 
@@ -68,7 +70,8 @@ class ProductsController extends Controller
         return redirect()->route('products');
     }
 
-    public function updateProductForm($slug) {
+    public function updateProductForm($slug)
+    {
         $product = Product::where('slug', $slug)->first();
         $categories = Category::all();
         $allergies = Allergy::all();
@@ -82,7 +85,7 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function updateProducts()
+    public function updateProducts($slug)
     {
         $data = request()->validate([
             'name' => 'required',
@@ -91,20 +94,20 @@ class ProductsController extends Controller
             'category' => 'required',
             'description' => 'required',
             'allergies' => 'required',
-            'image' => 'required|file'
         ]);
 
-        $slug = Str::slug(request('name'), '_');
+        $updateSlug = Str::slug(request('name'), '-');
 
-        $product = new Product();
-        $product->slug = $slug;
+        $product = Product::where('slug', $slug)->first();
+        $product->slug = $updateSlug;
         $product->name = request('name');
         $product->price = request('price');
 
-        if (request('category_image')) {
-            $file = request()->image->getClientOriginalName();
-            request()->image->storeAs('images/products', $file, 'public');
+        if (request('product_image')) {
+            $file = request()->product_image->getClientOriginalName();
+            request()->product_image->storeAs('images/products', $file, 'public');
             $product->image = $file;
+            Storage::delete('/public/images/products/' . request('delete-image'));
         } else {
             $product->image = request('selected_image');
         }
@@ -113,7 +116,6 @@ class ProductsController extends Controller
         $product->description = request('description');
         $product->spice_id = request('spice');
         $product->allergies = request('allergies');
-        $product->image = $file;
         $product->save();
 
         return redirect()->route('products');
@@ -123,10 +125,11 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        Storage::delete('/public/images/products/' . request('delete-image'));
         return redirect()->back();
     }
 
-    public function filterProducts() {
-
+    public function filterProducts()
+    {
     }
 }

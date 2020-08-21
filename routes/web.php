@@ -5,14 +5,14 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', function () { return view('welcome'); })->name('welcome');
 
     // Products
-    Route::get('/products', 'ProductsController@index')->name('products');
-    Route::post('/products', 'ProductsController@filter')->name('filter-products');
+    Route::get('/products', 'ProductsController@index')->name('products'); //Get all products
+    Route::post('/products', 'ProductsController@filter')->name('filter-products'); //Get all filtered products
 
-    Route::get('/add-products', 'ProductsController@addProducts')->name('add-products');
-    Route::post('/add-products', 'ProductsController@uploadProducts')->name('upload-products');
+    Route::get('/add-products', 'ProductsController@addProducts')->name('add-products'); //Display add product form
+    Route::post('/add-products', 'ProductsController@uploadProducts')->name('upload-products'); //Add product
 
     Route::get('/update-products/{slug}', 'ProductsController@updateProductForm')->name('update-product-form');
-    Route::post('/update-products', 'ProductsController@storeProducts')->name('store-updated-product');
+    Route::put('/update-products/{slug}', 'ProductsController@updateProducts')->name('updated-product');
 
     Route::delete('/delete-product/{id}', 'ProductsController@deleteProduct')->name('delete-product');
 

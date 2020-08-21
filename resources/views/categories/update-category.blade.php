@@ -26,7 +26,7 @@
                     </div>
 
                     <input type="submit" value="Update category" class="button button--primary mt-20">
-
+                    <input type="hidden" name="delete-image" value="{{ $category->image }}">
                     @csrf
                 </div>
             </div>

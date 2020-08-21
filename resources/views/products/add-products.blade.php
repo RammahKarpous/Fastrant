@@ -23,10 +23,10 @@
                             <label for="spice">Spice rating</label>
                             <select name="spice" id="spice">
                                 <option value="select" disabled selected>Please select a spice level</option>
-                                <option value="0">No spice</option>
-                                <option value="1">Mild</option>
-                                <option value="2">Hot</option>
-                                <option value="3">Extreme</option>
+
+                                @foreach($spiceRatings as $rating)
+                                    <option value="{{ $rating->id }}">{{ $rating->spice }}</option>
+                                @endforeach
                             </select>
                         </div>
 

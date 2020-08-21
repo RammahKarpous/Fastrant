@@ -46,6 +46,7 @@
                                                 <img src="{{ asset('images/icons/bin.svg') }}"
                                                      alt="Delete {{ $product->name }}"/>
                                             </button>
+                                            <input type="hidden" name="delete-image" value="{{ $product->image }}">
                                             @csrf
                                             @method('DELETE')
                                         </form>

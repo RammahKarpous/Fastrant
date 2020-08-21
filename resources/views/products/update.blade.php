@@ -25,7 +25,7 @@
                                 <option value="select" disabled selected>Please select a spice level</option>
 
                                 @foreach($spiceRatings as $rating)
-                                    <option value="{{ $rating->id }}">{{ $rating->spice }}</option>
+                                    <option value="{{ $rating->id }}" {{ $rating->id == $product->spice_id ? 'selected' : '' }}>{{ $rating->spice }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -86,7 +86,7 @@
 
                         <div>
                             <button type="button" id="clearForm" class="button button--danger">Clear</button>
-                            <button type="submit" class="button button--primary ml-20">Add product</button>
+                            <button type="submit" class="button button--primary ml-20">Update product</button>
                         </div>
                     </div>
                 </div>

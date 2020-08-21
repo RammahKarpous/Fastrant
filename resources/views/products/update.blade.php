@@ -19,14 +19,16 @@
                             <p class="currency">£</p>
                         </div>
 
-                        <x-spice-rating>
+                        <div class="input-group">
+                            <label for="spice">Spice rating</label>
+                            <select name="spice" id="spice">
+                                <option value="select" disabled selected>Please select a spice level</option>
 
-                        </x-spice-rating>
-
-                        {{ '0' == $product->rating ? 'No spicy' : '' }}
-                        {{ '1' == $product->rating ? 'Mild' : '' }}
-                        {{ '2' == $product->rating ? 'Hot' : '' }}
-                        {{ '3' == $product->rating ? 'Extreme' : '' }}
+                                @foreach($spiceRatings as $rating)
+                                    <option value="{{ $rating->id }}">{{ $rating->rating }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         {{-- Loop through categories --}}
                         <div class="input-group">
@@ -36,7 +38,8 @@
                                     <option value="select" disabled>Please select a category</option>
 
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                        <option
+                                            value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -53,21 +56,26 @@
                         <label>Allergies</label>
                     </div>
 
-{{--                    <x-allergies>--}}
-{{--                        @foreach($product->allergies as $allergy)--}}
-{{--                            {{ $allergy }}--}}
-{{--                        @endforeach--}}
-{{--                    </x-allergies>--}}
+                    {{--                    <x-allergies>--}}
+                    {{--                        @foreach($product->allergies as $allergy)--}}
+                    {{--                            {{ $allergy }}--}}
+                    {{--                        @endforeach--}}
+                    {{--                    </x-allergies>--}}
+
 
                     <div class="checkbox">
                         @foreach($allergies as $allergy)
                             <div class="checkbox__wrapper">
-                                <input type="checkbox" class="checkbox__input" {{ $allergy['allergy'] ? 'checked' : '' }} name="allergies[]" value="{{ $allergy['allergy'] }}"
-                                       id="{{ $allergy['name'] }}" hidden>
+                                @foreach($product->allergies as $db_allergy)
+                                    <input type="checkbox" class="checkbox__input"
+                                           {{ $allergy->allergy == $db_allergy ? 'checked' : '' }} name="allergies[]"
+                                           value="{{ $allergy->allergy }}"
+                                           id="{{ $allergy->slug }}" hidden>
+                                @endforeach
 
-                                <label for="{{ $allergy['name'] }}" class="checkbox__checkbox-element">
+                                <label for="{{ $allergy->slug }}" class="checkbox__checkbox-element">
                                     <span class="checkbox__box"></span>
-                                    {{ $allergy['allergy'] }}
+                                    {{ $allergy->allergy }}
                                 </label>
                             </div>
                         @endforeach
@@ -86,7 +94,8 @@
                 <div>
                     <div class="input-group">
                         <label class="image-selector" for="category_image">
-                            <span id="displayImage" style="background: url('{{ asset('storage/images/products/' . $product->image) }}')"></span>
+                            <span id="displayImage"
+                                  style="background: url('{{ asset('storage/images/products/' . $product->image) }}')"></span>
                             <input type="hidden" name="selected_image" value="{{ $category->image }}">
                         </label>
 

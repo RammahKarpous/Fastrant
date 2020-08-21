@@ -29,19 +29,19 @@
         public function list() {
             return [
                 [
-                    'rating' => '0',
+                    'rating' => '1',
                     'spice' => 'No spice'
                 ],
                 [
-                    'rating' => '1',
+                    'rating' => '2',
                     'spice' => 'Mild'
                 ],
                 [
-                    'rating' => '2',
+                    'rating' => '3',
                     'spice' => 'Hot'
                 ],
                 [
-                    'rating' => '3',
+                    'rating' => '4',
                     'spice' => 'Extreme'
                 ]
             ];

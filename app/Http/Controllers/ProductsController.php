@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Allergy;
 use App\Category;
 use App\Product;
+use App\SpiceRating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
@@ -58,7 +60,7 @@ class ProductsController extends Controller
         $product->price = request('price');
         $product->category_id = request('category');
         $product->description = request('description');
-        $product->spice = request('spice');
+        $product->spice_id = request('spice');
         $product->allergies = request('allergies');
         $product->image = $file;
         $product->save();
@@ -69,13 +71,14 @@ class ProductsController extends Controller
     public function updateProductForm($slug) {
         $product = Product::where('slug', $slug)->first();
         $categories = Category::all();
-        $allergies = new Allergies();
-        $allergies->list();
+        $allergies = Allergy::all();
+        $spiceRatings = SpiceRating::all();
 
         return view('products.update', [
             'product' => $product,
             'categories' => $categories,
-            'allergies' => $allergies
+            'allergies' => $allergies,
+            'spiceRatings' => $spiceRatings
         ]);
     }
 
@@ -108,7 +111,7 @@ class ProductsController extends Controller
 
         $product->category_id = request('category');
         $product->description = request('description');
-        $product->spice = request('spice');
+        $product->spice_id = request('spice');
         $product->allergies = request('allergies');
         $product->image = $file;
         $product->save();

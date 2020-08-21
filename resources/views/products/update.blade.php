@@ -25,7 +25,7 @@
                                 <option value="select" disabled selected>Please select a spice level</option>
 
                                 @foreach($spiceRatings as $rating)
-                                    <option value="{{ $rating->id }}">{{ $rating->rating }}</option>
+                                    <option value="{{ $rating->id }}">{{ $rating->spice }}</option>
                                 @endforeach
                             </select>
                         </div>

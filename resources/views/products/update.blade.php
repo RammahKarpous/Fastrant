@@ -4,12 +4,12 @@
     <div id="addProducts" class="wrapper">
         <h1 class="page-heading">Update products</h1>
 
-        <form action="{{ route('updated-product', $product->slug)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('updated-product', $product->slug) }}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
                         <label for="name">Product name</label>
-                        <input type="text" name="name" id="name" value="{{ $product->name }}"/>
+                        <input type="text" name="name" id="name" value="{{ $product->name }}" />
                     </div>
 
                     <div class="grid g-col-3 gap-20">
@@ -24,8 +24,10 @@
                             <select name="spice" id="spice">
                                 <option value="select" disabled selected>Please select a spice level</option>
 
-                                @foreach($spiceRatings as $rating)
-                                    <option value="{{ $rating->id }}" {{ $rating->id == $product->spice_id ? 'selected' : '' }}>{{ $rating->spice }}</option>
+                                @foreach ($spiceRatings as $rating)
+                                    <option value="{{ $rating->id }}"
+                                        {{ $rating->id == $product->spice_id ? 'selected' : '' }}>{{ $rating->spice }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -34,12 +36,13 @@
                         <div class="input-group">
                             <label for="category">Category</label>
                             <select name="category" id="category">
-                                @if(count($categories) > 0)
+                                @if (count($categories) > 0)
                                     <option value="select" disabled>Please select a category</option>
 
-                                    @foreach($categories as $category)
-                                        <option
-                                            value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                            {{ $category->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -55,17 +58,19 @@
                     <div class="input-group mt-20">
                         <label>Allergies</label>
                     </div>
-                    
-                    <div class="checkbox">
-                        @foreach($allergies as $allergy)
-                            <div class="checkbox__wrapper">
-                                @foreach($product->allergies as $db_allergy)
-                                    <input type="checkbox" class="checkbox__input"
-                                           {{ $allergy->allergy == $db_allergy ? 'checked' : '' }} name="allergies[]"
-                                           value="{{ $allergy->allergy }}"
-                                           id="{{ $allergy->slug }}" hidden>
-                                @endforeach
 
+                    <div class="checkbox">
+                        @foreach ($allergies as $allergy)
+                            <div class="checkbox__wrapper">
+                                @foreach ($product->allergies as $db_allergy)
+                                    @if ($allergy->allergy == $db_allergy)
+                                        <input type="checkbox" class="checkbox__input" name="allergies[]"
+                                            value="{{ $allergy->allergy }}" id="{{ $allergy->slug }}" checked hidden>
+                                    @endif
+                                @endforeach
+                                
+                                <input type="checkbox" class="checkbox__input" name="allergies[]"
+                                    value="{{ $allergy->allergy }}" id="{{ $allergy->slug }}" hidden>
                                 <label for="{{ $allergy->slug }}" class="checkbox__checkbox-element">
                                     <span class="checkbox__box"></span>
                                     {{ $allergy->allergy }}
@@ -88,7 +93,7 @@
                     <div class="input-group">
                         <label class="image-selector" for="image">
                             <span id="displayImage"
-                                  style="background: url('{{ asset('storage/images/products/' . $product->image) }}')"></span>
+                                style="background: url('{{ asset('storage/images/products/' . $product->image) }}')"></span>
                             <input type="hidden" name="selected_image" value="{{ $product->image }}">
                         </label>
 
@@ -110,7 +115,7 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#displayImage').css('background', 'url(' + e.target.result + ')');
                 }
 
@@ -118,14 +123,15 @@
             }
         }
 
-        $("#image").change(function () {
+        $("#image").change(function() {
             readURL(this);
         });
 
         let clear = document.querySelector('#clearForm');
 
-        clear.addEventListener('click', function () {
+        clear.addEventListener('click', function() {
             console.log('cleared!');
         });
+
     </script>
 @endsection

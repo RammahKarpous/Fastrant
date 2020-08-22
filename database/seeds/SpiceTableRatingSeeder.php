@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SpiceTableRatingSeeder extends Seeder
 {
@@ -24,7 +25,7 @@ class SpiceTableRatingSeeder extends Seeder
             ],
             [
                 'spice'    => 'Extreme',
-            ],  
+            ],
         ] );
     }
 }

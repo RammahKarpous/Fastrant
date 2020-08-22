@@ -8,7 +8,8 @@
 @import 'abstract/opacity';
 
 // Utilities
-@import "utilities/mixins/mixins";
+@import "abstract/mixins/mixins";
+@import "abstract/mixins/background";
 
 // Global
 @import "layout/global";
@@ -29,4 +30,5 @@
 
 // Pages
 @import "pages/categories";
+@import "pages/product";
 

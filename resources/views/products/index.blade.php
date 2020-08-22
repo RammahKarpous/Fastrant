@@ -30,7 +30,7 @@
                 @if(count($products) > 0)
                     @foreach($products as $product)
                         <div class="card">
-                            <a href="#">
+                            <a href="{{ route('product', $product->slug) }}">
                                 <div class="card-image-wrapper"
                                      style="background: url('{{ asset('storage/images/products/' . $product->image) }}');"></div>
 

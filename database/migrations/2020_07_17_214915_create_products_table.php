@@ -18,7 +18,7 @@
                 $table->string( "slug" );
                 $table->string( "image" );
                 $table->double( "price" );
-                $table->string( "description" );
+                $table->string( "description", 500 );
                 $table->unsignedBigInteger( "spice_id" );
                 $table->json( "allergies" )->nullable();
                 $table->timestamps();

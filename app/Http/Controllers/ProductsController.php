@@ -21,6 +21,13 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function show($slug)
+    {
+        return view('products.show', [
+            'product' => Product::where('slug', $slug)->first()
+        ]);
+    }
+
     public function filter()
     {
         return view('products.index', [

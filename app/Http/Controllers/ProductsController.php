@@ -53,7 +53,7 @@ class ProductsController extends Controller
             'price' => 'required',
             'spice' => 'required',
             'category' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:500',
             'allergies' => 'required',
             'image' => 'required|file'
         ]);

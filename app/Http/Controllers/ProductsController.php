@@ -28,13 +28,6 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function filter()
-    {
-        return view('products.index', [
-            'products' => Product::orderBy('name', request('filter'))
-        ]);
-    }
-
     public function addProducts()
     {
 

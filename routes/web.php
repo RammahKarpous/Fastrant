@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/products', 'ProductsController@index')->name('products'); //Get all products
     Route::get('/product/{slug}', 'ProductsController@show')->name('product'); //Get single product
 
-    Route::post('/products', 'ProductsController@filter')->name('filter-products'); //Get all filtered products
+    Route::post('/products', 'FiltersController@filter')->name('filter'); //Get all filtered products
 
     Route::get('/add-products', 'ProductsController@addProducts')->name('add-products'); //Display add product form
     Route::post('/add-products', 'ProductsController@uploadProducts')->name('upload-products'); //Add product

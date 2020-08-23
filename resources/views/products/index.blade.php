@@ -8,22 +8,9 @@
             <a href="{{ route('add-products') }}" class="button button--primary">Add a new product</a>
         </div>
 
-        <form method="POST" action="{{ route('filter-products') }}">
-            <div class="form-wrapper grid gap-30">
-                <div class="grid g-col-2 gap-20 align-flex-end">
-                    <div class="input-group">
-                        <label for="filter">Category</label>
-                        <select name="filter" id="filter">
-                            <option value="asc">a-z</option>
-                            <option value="decs">z-a</option>
-                        </select>
-                    </div>
-
-                    <input type="submit" value="Filter" class="button button--primary justify-self-start">
-                </div>
-            </div>
-            @csrf
-        </form>
+        <x-filter>
+            <input type="hidden" name="filter-type" value="products">
+        </x-filter>
 
         <div class="cards-wrapper">
             <div class="grid g-col-4 gap-20">
@@ -36,6 +23,12 @@
 
                                 <div class="flex space-between p-10">
                                     <p>{{ $product->name }}</p>
+
+                                    @foreach($product->allergies as $allergy)
+                                        @if($allergy == 'No allergies')
+                                            <p>No A</p>
+                                        @endif
+                                    @endforeach
 
                                     <div class="options">
                                         <a href="{{ route('update-product-form', $product->slug) }}"><img src="{{ asset('images/icons/edit.svg') }}"

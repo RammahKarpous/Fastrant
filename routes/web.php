@@ -27,8 +27,8 @@ use Illuminate\Support\Facades\Route;
 
     Route::delete('/delete-category/{id}', 'CategoriesController@deleteCategory')->name('delete-category');
 
-    // Menus
-    Route::get('/menus', 'MenusController@index')->name('menus');
+    // Menu
+    Route::get('/menus', 'MenuController@index')->name('menus');
 
     // Auth Routs
     Auth::routes();

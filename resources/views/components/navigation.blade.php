@@ -7,6 +7,9 @@
         <li><a class="{{ Route::is('/') ? 'current-page' : '' }}"
                href="{{ route('welcome') }}">Home</a></li>
 
+        <li><a class="{{ Route::is('/menus') ? 'current-page' : '' }}"
+               href="{{ route('menus') }}">Menus</a></li>
+
         <li><a class="{{ Request::is('/products') ? 'current-page' : '' }}"
                href="{{ route('products') }}">Products</a></li>
 

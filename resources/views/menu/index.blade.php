@@ -36,26 +36,26 @@
             <h2>Categories</h2>
 
             <div class="grid g-col-4 gap-20">
-                @if(count($categories) > 0)
-                    @foreach($categories as $category)
+                @if(count($menus) > 0)
+                    @foreach($menus as $menu)
                         <div class="card">
                             <div class="card-image-wrapper"
-                                 style="background: url('{{ asset('storage/images/categories/' . $category->image) }}');"></div>
+                                 style="background: url('{{ asset('storage/images/categories/' . $menu->image) }}');"></div>
 
                             <div class="options p-10">
-                                <p>{{ $category->name }}</p>
+                                <p>{{ $menu->name }}</p>
 
                                 <div class="flex space-between align-items-center">
-                                    <a href="{{ route('show-update-categories', $category->slug) }}" class="icon icon--style mr-10">
+                                    <a href="{{ route('show-update-categories', $menu->slug) }}" class="icon icon--style mr-10">
                                         <img src="{{ asset('images/icons/edit.svg') }}"
-                                             alt="Delete {{ $category->name }}"/></a>
+                                             alt="Delete {{ $menu->name }}"/></a>
 
-                                    <form action="{{ route('delete-category', $category->id) }}" method="POST">
+                                    <form action="{{ route('delete-category', $menu->id) }}" method="POST">
                                         <button type="submit" class="icon">
                                             <img src="{{ asset('images/icons/bin.svg') }}"
-                                                 alt="Delete {{ $category->name }}"/>
+                                                 alt="Delete {{ $menu->name }}"/>
                                         </button>
-                                        <input type="hidden" name="delete-image" value="{{ $category->image }}">
+                                        <input type="hidden" name="delete-image" value="{{ $menu->image }}">
                                         @csrf
                                         @method('DELETE')
                                     </form>
@@ -64,7 +64,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p>There are no categories</p>
+                    <p>There are no menus</p>
                 @endif
             </div>
         </article>

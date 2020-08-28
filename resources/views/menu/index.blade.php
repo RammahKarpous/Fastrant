@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Menus')
+
 @section('content')
     <div class="wrapper">
         <h2 class="page-heading">Menus</h2>

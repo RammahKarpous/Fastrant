@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Add product')
+
 @section('content')
     <div id="addProducts" class="wrapper">
         <h1 class="page-heading">Add products</h1>

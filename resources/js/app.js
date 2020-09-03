@@ -1,45 +1,37 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('image-selector', require('./components/ImageSelector.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 const app = new Vue({
     el: '#app',
 });
 
-// Selecting category image ==== CATEGORIES PAGE
+import Quill from 'quill';
 
-// let catImage = document.querySelector('#category_image'),
-//     imageSelector = document.querySelector('.image-selector');
-//
-// catImage.addEventListener('change', function () {
-//     imageSelector.setAttribute('style', `background: url('${catImage.value}')`);
-//
-//     // console.log(catImage.value);
-// });
-//
+let toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],
+    ['blockquote', 'code-block'],
+
+    [{'color': [
+            "#000000", "#e60000", "#ff9900", "#ffff00", "#008a00", "#0066cc", "#9933ff", "#ffffff", "#facccc", "#ffebcc",
+            "#ffffcc", "#cce8cc", "#cce0f5", "#ebd6ff", "#bbbbbb", "#f06666", "#ffc266", "#ffff66", "#66b966", "#66a3e0",
+            "#c285ff", "#888888", "#a10000", "#b26b00", "#b2b200", "#006100", "#0047b2", "#6b24b2", "#444444", "#5c0000",
+            "#663d00", "#666600", "#003700", "#002966", "#3d1466", 'custom-color']},
+
+        {'background': []}],
+
+    [{'header': [1, 2, 3, 4, 5, 6, false]}],
+    ['link']
+];
+
+let editor = new Quill('#editor', {
+    theme: 'snow',
+    modules: {
+        toolbar: toolbarOptions,
+        syntax: false
+    }
+});

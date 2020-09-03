@@ -6,7 +6,7 @@
     <div class="wrapper">
         <h2 class="page-heading">Menus</h2>
 
-        <form action="{{ route('add-categories') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('add-menu') }}" method="POST" enctype="multipart/form-data">
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
@@ -35,14 +35,14 @@
         </form>
 
         <article class="cards-wrapper">
-            <h2>Categories</h2>
+            <h2>Menus</h2>
 
             <div class="grid g-col-4 gap-20">
                 @if(count($menus) > 0)
                     @foreach($menus as $menu)
                         <div class="card">
                             <div class="card-image-wrapper"
-                                 style="background: url('{{ asset('storage/images/categories/' . $menu->image) }}');"></div>
+                                 style="background: url('{{ asset('storage/images/menu/' . $menu->image) }}');"></div>
 
                             <div class="options p-10">
                                 <p>{{ $menu->name }}</p>

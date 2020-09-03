@@ -72,3 +72,6 @@
         </article>
     </div>
 @endsection
+@section('scripts')
+<script src="{{asset('js/imageSelector.js')}}"></script>
+@endsection

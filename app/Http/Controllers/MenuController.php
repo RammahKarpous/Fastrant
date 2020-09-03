@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MenuController extends Controller
 {
@@ -13,5 +14,25 @@ class MenuController extends Controller
         return view('menu.index', [
             'menus' => Menu::all()
         ]);
+    }
+
+    
+    public function addMenu()
+    {
+        $data = request()->validate([
+            'menu_name' => 'required',
+            'menu_image' => 'required|file|image'
+        ]);
+
+        $file = request()->menu_image->getClientOriginalName();
+        request()->menu_image->storeAs('images/menu', $file, 'public');
+
+        $menu = new Menu();
+        $menu->name = request('menu_name');
+        $menu->slug = Str::slug(request('menu_name'), '-');
+        $menu->image = $file;
+        $menu->save();
+
+        return redirect()->back();
     }
 }

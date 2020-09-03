@@ -8,7 +8,7 @@
             <a href="{{ route('add-products') }}" class="button button--primary">Add a new product</a>
         </div>
 
-        <x-filter>
+    <x-filter chosenFilter="{{$filter ?? ''}}">
             <input type="hidden" name="filter-type" value="products">
         </x-filter>
 

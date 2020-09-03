@@ -13,7 +13,8 @@ class FiltersController extends Controller
         $filter = explode(',', request('filter'));
 
         return view('products.index', [
-            'products' => Product::where('allergies', 'No allergies')->orderBy($filter[0], $filter[1])->get()
+            'products' => Product::orderBy($filter[0], $filter[1])->get(),
+            'filter' => request('filter')
         ]);
     }
 }

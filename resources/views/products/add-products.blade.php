@@ -11,7 +11,7 @@
                 <div>
                     <div class="input-group">
                         <label for="name">Product name</label>
-                        <input type="text" name="name" id="name"/>
+                        <input type="text" name="name" id="name" />
                     </div>
 
                     <div class="grid g-col-3 gap-20">
@@ -26,7 +26,7 @@
                             <select name="spice" id="spice">
                                 <option value="select" disabled selected>Please select a spice level</option>
 
-                                @foreach($spiceRatings as $rating)
+                                @foreach ($spiceRatings as $rating)
                                     <option value="{{ $rating->id }}">{{ $rating->spice }}</option>
                                 @endforeach
                             </select>
@@ -36,10 +36,10 @@
                         <div class="input-group">
                             <label for="category">Category</label>
                             <select name="category" id="category">
-                                @if(count($categories) > 0)
+                                @if (count($categories) > 0)
                                     <option value="select" disabled selected>Please select a category</option>
 
-                                    @foreach($categories as $category)
+                                    @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 @endif
@@ -57,7 +57,7 @@
                         <label>Allergies</label>
                     </div>
 
-                    <x-allergies/>
+                    <x-allergies />
 
                     <div class="flex space-between buttons">
                         <a href="{{ url()->previous() }}" class="button button--error">Cancel</a>
@@ -90,27 +90,11 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/imageSelector.js') }}"></script>
     <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#displayImage').css('background', 'url(' + e.target.result + ')');
-                }
-
-                reader.readAsDataURL(input.files[0]); // convert to base64 string
-            }
-        }
-
-        $("#image").change(function () {
-            readURL(this);
-        });
-
-        let clear = document.querySelector('#clearForm');
-
-        clear.addEventListener('click', function () {
+        clear.addEventListener('click', function() {
             console.log('cleared!');
         });
+
     </script>
 @endsection

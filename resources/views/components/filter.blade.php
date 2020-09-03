@@ -4,13 +4,12 @@
             <div class="input-group">
                 <label for="filter">Category</label>
                 <select name="filter" id="filter">
-                    <option value="name,asc">a-z</option>
-                    <option value="name,desc">z-a</option>
-                    <option value="price,desc">Price (high - low)</option>
-                    <option value="price,asc">Price (low - high)</option>
+                    @foreach ($list as $filter)
+                        <option {{ $filter['value'] == $chosenFilter ? 'selected' : '' }}
+                            value="{{ $filter['value'] }}">{{ $filter['label'] }}</option>
+                    @endforeach
                 </select>
             </div>
-
             <input type="submit" value="Filter" class="button button--primary justify-self-start">
         </div>
     </div>

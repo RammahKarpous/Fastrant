@@ -10,14 +10,14 @@
             <div class="form-wrapper grid gap-30">
                 <div>
                     <div class="input-group">
-                        <label class="image-selector" for="menu_image">
+                        <label class="image-selector" for="image">
                             <span class="large-text">Add image</span>
                             <span class="normal-text">Click here to upload an image</span>
                             <span class="border"></span>
 
                             <span id="displayImage"></span>
                         </label>
-                        <input type="file" accept="image/*" hidden id="menu_image" name="menu_image">
+                        <input type="file" accept="image/*" hidden id="image" name="menu_image">
                         @error('menu_image')<p class="error">{{ $message }}</p>@enderror
                     </div>
 

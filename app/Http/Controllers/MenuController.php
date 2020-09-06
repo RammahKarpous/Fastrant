@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {

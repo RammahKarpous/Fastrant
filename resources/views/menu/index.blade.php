@@ -52,7 +52,7 @@
                                         <img src="{{ asset('images/icons/edit.svg') }}"
                                              alt="Delete {{ $menu->name }}"/></a>
 
-                                    <form action="{{ route('delete-category', $menu->id) }}" method="POST">
+                                    <form action="{{ route('delete-menu', $menu->id) }}" method="POST">
                                         <button type="submit" class="icon">
                                             <img src="{{ asset('images/icons/bin.svg') }}"
                                                  alt="Delete {{ $menu->name }}"/>

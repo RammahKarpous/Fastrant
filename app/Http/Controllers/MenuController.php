@@ -35,4 +35,12 @@ class MenuController extends Controller
 
         return redirect()->back();
     }
+
+    public function deleteMenu()
+    {
+        $menu = Menu:: find($id);
+        $menu->delete();
+        Storage::delete('/public/images/menu/'.request('delete-image'));
+        return redirect()->back();
+    }
 }

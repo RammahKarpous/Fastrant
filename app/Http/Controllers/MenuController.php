@@ -36,7 +36,7 @@ class MenuController extends Controller
         return redirect()->back();
     }
 
-    public function deleteMenu()
+    public function deleteMenu($id)
     {
         $menu = Menu:: find($id);
         $menu->delete();

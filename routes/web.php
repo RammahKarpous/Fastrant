@@ -33,7 +33,7 @@ Route::delete('/delete-category/{id}', 'CategoriesController@deleteCategory')->n
 // Menu
 Route::get('/menus', 'MenuController@index')->name('menus');
 Route::post('/menus', 'MenuController@addMenu')->name('add-menu');
-Route::post('/menus', 'MenuController@deleteMenu')->name('delete-menu');
+Route::delete('/menus/{id}', 'MenuController@deleteMenu')->name('delete-menu');
 
 // Auth Routs
 Auth::routes();

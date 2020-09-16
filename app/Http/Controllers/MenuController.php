@@ -17,7 +17,7 @@ class MenuController extends Controller
         ]);
     }
 
-    
+
     public function addMenu()
     {
         $data = request()->validate([
@@ -35,6 +35,10 @@ class MenuController extends Controller
         $menu->save();
 
         return redirect()->back();
+    }
+
+    public function updateMenu($slug) {
+
     }
 
     public function deleteMenu($id)
